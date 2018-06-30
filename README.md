@@ -14,14 +14,16 @@ Summary: The X.org incarnation of the X11 makedepend utility.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/xorg-makedepend-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/xorg-makedepend-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/xorg-makedepend-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/xorg-makedepend-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/xorg-makedepend-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/xorg-makedepend-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/xorg-makedepend-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/xorg-makedepend-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/xorg-makedepend-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/xorg-makedepend-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/xorg-makedepend-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/xorg-makedepend-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/xorg-makedepend/badges/version.svg)](https://anaconda.org/conda-forge/xorg-makedepend)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/xorg-makedepend/badges/downloads.svg)](https://anaconda.org/conda-forge/xorg-makedepend)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-xorg--makedepend-green.svg)](https://anaconda.org/conda-forge/xorg-makedepend) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/xorg-makedepend.svg)](https://anaconda.org/conda-forge/xorg-makedepend) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/xorg-makedepend.svg)](https://anaconda.org/conda-forge/xorg-makedepend) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/xorg-makedepend.svg)](https://anaconda.org/conda-forge/xorg-makedepend) |
 
 Installing xorg-makedepend
 ==========================
@@ -66,6 +68,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
