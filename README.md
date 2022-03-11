@@ -151,4 +151,5 @@ Feedstock Maintainers
 
 * [@epruesse](https://github.com/epruesse/)
 * [@pkgw](https://github.com/pkgw/)
+* [@zklaus](https://github.com/zklaus/)
 
