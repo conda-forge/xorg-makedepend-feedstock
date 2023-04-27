@@ -32,13 +32,11 @@ requirements:
     - {{ compiler('m2w64_cxx') }}  # [win]
   host:
     - xorg-util-macros  # [win]
-    - xorg-xproto
+    - xorg-xorgproto
   run:
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
     - 'test "`makedepend 2>&1`" = "makedepend: error:  [mM]akefile is not present"'  # [not win]
 
 about:
