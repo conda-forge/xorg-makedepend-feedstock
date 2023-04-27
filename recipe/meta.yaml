@@ -1,8 +1,8 @@
 {% set xorg_name = "makedepend" %}
 {% set xorg_category = "util" %}
 {% set name = "xorg-" ~ xorg_name %}
-{% set version = "1.0.6" %}
-{% set sha256 = "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c" %}
+{% set version = "1.0.8" %}
+{% set sha256 = "bfb26f8025189b2a01286ce6daacc2af8fe647440b40bb741dd5c397572cba5b" %}
 {% set am_version = "1.15" %} # keep synchronized with build.sh
 
 package:
@@ -10,12 +10,11 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ xorg_name }}-{{ version }}.tar.bz2
-  url: https://www.x.org/releases/individual/{{ xorg_category }}/{{ xorg_name }}-{{ version }}.tar.bz2
+  url: https://www.x.org/releases/individual/{{ xorg_category }}/{{ xorg_name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   detect_binary_files_with_prefix: true
 
 requirements:
