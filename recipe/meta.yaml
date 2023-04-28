@@ -39,7 +39,8 @@ requirements:
 
 test:
   commands:
-    - 'test "`makedepend 2>&1`" = "makedepend: error:  [mM]akefile is not present"'  # [not win]
+    - 'test "`makedepend 2>&1`" = "makedepend: error:  [mM]akefile is not present"'  # [not win and build_platform == target_platform]
+    - test -f ${PREFIX}/bin/makedepend  # [not win]
 
 about:
   home: https://www.x.org/
