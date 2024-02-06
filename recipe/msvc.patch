@@ -1,0 +1,58 @@
+diff --git a/def.h b/def.h
+index 41deabf..8f42e1e 100644
+--- a/def.h
++++ b/def.h
+@@ -28,6 +28,21 @@ in this Software without prior written authorization from The Open Group.
+ # include "makedepend-config.h"
+ #endif
+ 
++#if defined(_MSC_VER)
++#define realpath(p, r) _fullpath((r), (p), _MAX_PATH)
++#define strdup _strdup
++
++#define _CRT_INTERNAL_NONSTDC_NAMES 1
++#include <sys/stat.h>
++#if !defined(S_ISREG) && defined(S_IFMT) && defined(S_IFREG)
++  #define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
++#endif
++#if !defined(S_ISDIR) && defined(S_IFMT) && defined(S_IFDIR)
++  #define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
++#endif
++
++#endif
++
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+diff --git a/main.c b/main.c
+index 8b23029..9e9734e 100644
+--- a/main.c
++++ b/main.c
+@@ -31,7 +31,9 @@ in this Software without prior written authorization from The Open Group.
+ 
+ #include <signal.h>
+ #include <stdarg.h>
++#if !defined(_MSC_VER)
+ #include <unistd.h>
++#endif
+ 
+ #ifdef __sun
+ #include <sys/utsname.h>
+@@ -93,7 +95,7 @@ catch(int sig)
+ #define USGISH
+ #endif
+ 
+-#ifndef USGISH
++#if !defined(USGISH) && !defined(_MSC_VER)
+ #ifdef X_NOT_POSIX
+ #define sigaction sigvec
+ #define sa_handler sv_handler
+@@ -434,7 +436,7 @@ main(int argc, char *argv[])
+ #ifdef SIGSYS
+     signal(SIGSYS, catch);
+ #endif
+-#else
++#elif !defined(_MSC_VER)
+     sig_act.sa_handler = catch;
+ #if defined(_POSIX_SOURCE) || !defined(X_NOT_POSIX)
+     sigemptyset(&sig_act.sa_mask);

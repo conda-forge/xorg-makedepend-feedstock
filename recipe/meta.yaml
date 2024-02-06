@@ -1,9 +1,9 @@
 {% set xorg_name = "makedepend" %}
 {% set xorg_category = "util" %}
 {% set name = "xorg-" ~ xorg_name %}
-{% set version = "1.0.8" %}
-{% set sha256 = "bfb26f8025189b2a01286ce6daacc2af8fe647440b40bb741dd5c397572cba5b" %}
-{% set am_version = "1.15" %} # keep synchronized with build.sh
+{% set version = "1.0.9" %}
+{% set sha256 = "92d0deb659fff6d8ddbc1d27fc4ca8ceb2b6dbe15d73f0a04edc09f1c5782dd4" %}
+{% set am_version = "1.16" %} # keep synchronized with build.sh
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
   url: https://www.x.org/releases/individual/{{ xorg_category }}/{{ xorg_name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
-  - windows-realpath.patch  # [win]
+    - msvc.patch  # [win]
 
 build:
   number: 0
@@ -23,15 +23,15 @@ requirements:
   build:
     - m2-autoconf  # [win]
     - m2-automake{{ am_version }}  # [win]
+    - m2-grep  # [win]
     - m2-libtool  # [win]
-    - m2w64-pkg-config  # [win]
-    - make
+    - m2-m4  # [win]
+    - m2-make  # [win]
+    - m2-pkg-config  # [win]
+    - make  # [not win]
     - pkg-config  # [not win]
-    - posix  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('cxx') }}        # [unix]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - xorg-util-macros  # [win]
     - xorg-xorgproto
