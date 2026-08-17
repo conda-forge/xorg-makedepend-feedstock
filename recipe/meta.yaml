@@ -1,8 +1,8 @@
 {% set xorg_name = "makedepend" %}
 {% set xorg_category = "util" %}
 {% set name = "xorg-" ~ xorg_name %}
-{% set version = "1.0.9" %}
-{% set sha256 = "92d0deb659fff6d8ddbc1d27fc4ca8ceb2b6dbe15d73f0a04edc09f1c5782dd4" %}
+{% set version = "1.0.10" %}
+{% set sha256 = "f278c4686285d70292c03f7339cc3c0a811fc6c4bf9c053906d0a5732eac9138" %}
 {% set am_version = "1.16" %} # keep synchronized with build.sh
 
 package:
